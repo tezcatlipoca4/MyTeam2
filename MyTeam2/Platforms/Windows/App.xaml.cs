@@ -21,5 +21,4 @@ namespace MyTeam2.WinUI
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
-
 }

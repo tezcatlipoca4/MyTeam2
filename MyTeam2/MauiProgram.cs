@@ -19,11 +19,15 @@ namespace MyTeam2
 
 #if DEBUG
             builder.Logging.AddDebug();
+
+            // Uncomment to clear preferences for debugging purposes
+            // Preferences.Clear();
 #endif
 
             // Register services
+            //builder.Services.AddTransient<MainPage>();
             builder.Services.AddSingleton<ITeamService, DataService>();
-            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddSingleton<IAppSettings, AppSettings>();
 
             return builder.Build();
         }

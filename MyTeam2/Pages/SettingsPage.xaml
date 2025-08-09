@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="MyTeam2.Pages.Settings.SettingsPage"
+    x:Class="MyTeam2.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Ρυθμίσεις"
-    BackgroundColor="Grey">
+    Title="Settings">
 
     <ScrollView>
         <VerticalStackLayout Margin="10,0">
             
-            <Label
+            <!--<Label
                 FontSize="20"
                 HorizontalOptions="Center"
                 Text="Επιλεγμένη ομάδα"
@@ -20,8 +19,32 @@
                 Title="Επιλογή ομάδας"
                 HorizontalOptions="Center"
                 MinimumHeightRequest="30"
-                SelectedIndexChanged="TeamPicker_OnSelectedIndexChanged" />
-            
+                SelectedIndexChanged="TeamPicker_OnSelectedIndexChanged" />-->
+
+            <Grid Padding="20" RowSpacing="15" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <!-- Για labels -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Για Pickers -->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Άνοιγμα link -->
+                <Label
+                    Text="Η ομάδα μου:"
+                    VerticalTextAlignment="Center" 
+                    Grid.Row="0" Grid.Column="0" />
+                <Picker
+                    x:Name="TeamPicker"
+                    Grid.Row="0" 
+                    Grid.Column="1" 
+                    SelectedIndexChanged="TeamPicker_OnSelectedIndexChanged" />
+               
+            </Grid>
+
             <Label
                 FontSize="20"
                 HorizontalOptions="Center"
@@ -64,48 +87,38 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             
-            <Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="Μέθοδος ανοίγματος άρθρων"
-                VerticalTextAlignment="Center" />
+            <Grid Padding="20" RowSpacing="15" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <!-- Για labels -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Για Pickers -->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Picker
-                x:Name="urlPicker"
-                HorizontalOptions="Center"
-                MinimumHeightRequest="30"
-                SelectedIndexChanged="urlPicker_SelectedIndexChanged" />
+                <!-- Browser selection -->
+                <Label Text="Άνοιγμα link σε:" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0" />
+                <Picker x:Name="LinkPicker" Grid.Row="0" Grid.Column="1" />
 
-            <Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="Πλήθος άρθρων ανά ιστοσελίδα"
-                VerticalTextAlignment="Center" />
+                <!-- Theme selection -->
+                <Label Text="Επιλογή θεματος:" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" />
+                <Picker x:Name="ThemePicker" Grid.Row="1" Grid.Column="1" />
 
-            <Picker
-                x:Name="articlePicker"
-                HorizontalOptions="Center"
-                MinimumHeightRequest="30"
-                SelectedIndexChanged="articlePicker_SelectedIndexChanged" />
-
-            <Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="Επιλογή εμφάνισης ειδήσεων"
-                VerticalTextAlignment="Center" />
-
-            <Picker
-                x:Name="themePicker"
-                HorizontalOptions="Center"
-                MinimumHeightRequest="30"
-                SelectedIndexChanged="thePicker_Changed"
-                WidthRequest="150" />
+                <!-- Articles Per Page -->
+                <Label Text="Άρθρα ανά σελίδα:" VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0" />
+                <Picker x:Name="ArticlesPerPagePicker" Grid.Row="2" Grid.Column="1" />
+            </Grid>
 
             <Button
                 x:Name="SaveSettingsButton"
                 HorizontalOptions="End"
                 Clicked="SaveSettingsButton_OnClicked"
                 Text="ΑΠΟΘΗΚΕΥΣΗ" />
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
