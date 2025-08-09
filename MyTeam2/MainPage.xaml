@@ -14,15 +14,22 @@
                 SemanticProperties.Description="dot net bot in a hovercraft number nine" />
 
             <Label
-                Text="Hello, World!"
+                Text="Hello, αρρωστάκια!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
+                Text="Welcome to MyTeam2"
                 Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                SemanticProperties.HeadingLevel="Level2" />
+            
+            <Button
+                x:Name="SettingsBtn"
+                Text="Settings"
+                SemanticProperties.Hint="Navigate to application settings"
+                Clicked="OnSettingsClicked"
+                HorizontalOptions="Fill" />
+            
         </VerticalStackLayout>
     </ScrollView>
 

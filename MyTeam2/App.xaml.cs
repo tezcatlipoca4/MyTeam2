@@ -1,5 +1,4 @@
-﻿using MyTeam2.Models.MyTeam2.Models;
-using System.Data;
+﻿using MyTeam2.Models;
 
 namespace MyTeam2
 {
@@ -8,8 +7,6 @@ namespace MyTeam2
         public App()
         {
             InitializeComponent();
-
-            var teamInfo = InitializeTeamInfo();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
@@ -17,123 +14,6 @@ namespace MyTeam2
             return new Window(new AppShell());
         }
 
-        private List<TeamInfo> InitializeTeamInfo()
-        {
-            var teamInfo = new List<TeamInfo>();
-
-            teamInfo.Add(new TeamInfo
-            {
-                TeamName = "aek",
-                TeamLabel = "ΑΕΚ",
-                Sites = new List<TeamSiteInfo>
-                {
-                    new TeamSiteInfo { SiteName = "AEK365", Url = "https://www.aek365.org/articles.php?id=10" },
-                    new TeamSiteInfo { SiteName = "Contra", Url = "http://www.contra.gr/aek" },
-                    new TeamSiteInfo { SiteName = "Gazzetta", Url = "https://www.gazzetta.gr/teams/aek" },
-                    new TeamSiteInfo { SiteName = "NovaSports", Url = "http://www.novasports.gr/sys/novasports/RssFeed/GetFeed?type=2&id=16673&languageID=1" },
-                    new TeamSiteInfo { SiteName = "OnSports", Url = "https://www.onsports.gr/omades/aek" },
-                    new TeamSiteInfo { SiteName = "SDNA", Url = "http://www.sdna.gr/teams/aek" },
-                    new TeamSiteInfo { SiteName = "Sport24", Url = "http://www.sport24.gr/football/omades/aek/?widget=rssfeed&view=feed&contentId=174866" },
-                    new TeamSiteInfo { SiteName = "SportFM", Url = "http://www.sport-fm.gr/tag/aek" },
-                    new TeamSiteInfo { SiteName = "SportDog", Url = "http://sportdog.gr/tag/ΑΕΚ" },
-                    new TeamSiteInfo { SiteName = "Sportime", Url = "http://www.sportime.gr/tag/aek/feed/" },
-                    new TeamSiteInfo { SiteName = "To10", Url = "https://www.to10.gr/team/aek/" },
-                    new TeamSiteInfo { SiteName = "A-sports", Url = "https://www.A-sports.gr/articles_categories-182/" },
-                    new TeamSiteInfo { SiteName = "Kingsport", Url = "https://www.kingsport.gr/category/super-league1/aek-fc/" },
-                }
-            });
-
-            teamInfo.Add(new TeamInfo
-            {
-                TeamName = "aris",
-                TeamLabel = "Άρης",
-                Sites = new List<TeamSiteInfo>
-                {
-                    new TeamSiteInfo { SiteName = "ArisFC", Url = "http://arisfc.com.gr/index.php/enimerosi?format=feed&type=rss" },
-                    new TeamSiteInfo { SiteName = "Contra", Url = "http://www.contra.gr/aris" },
-                    new TeamSiteInfo { SiteName = "Gazzetta", Url = "https://www.gazzetta.gr/teams/aris" },
-                    new TeamSiteInfo { SiteName = "NovaSports", Url = "http://www.novasports.gr/sys/novasports/RssFeed/GetFeed?type=2&id=16817&languageID=1" },
-                    new TeamSiteInfo { SiteName = "OnSports", Url = "https://www.onsports.gr/omades/aris" },
-                    new TeamSiteInfo { SiteName = "Planetaris", Url = "https://planetaris.gr" },
-                    new TeamSiteInfo { SiteName = "SDNA", Url = "http://www.sdna.gr/teams/aris" },
-                    new TeamSiteInfo { SiteName = "Sport24", Url = "http://www.sport24.gr/football/omades/aris/?widget=rssfeed&view=feed&contentId=174866" },
-                    new TeamSiteInfo { SiteName = "SportFM", Url = "http://www.sport-fm.gr/tag/aris" },
-                    new TeamSiteInfo { SiteName = "Sportime", Url = "http://www.sportime.gr/tag/aris-fc/feed/" },
-                    new TeamSiteInfo { SiteName = "ThesSports", Url = "https://thessports.gr/category/soccer/αρησ/feed/" },
-                    new TeamSiteInfo { SiteName = "SportDog", Url = "http://sportdog.gr/tag/Αρης" },
-                    new TeamSiteInfo { SiteName = "AllAboutAris", Url = "https://allaboutaris.gr/roi-eidiseon/" },
-                    new TeamSiteInfo { SiteName = "PressAris", Url = "https://www.pressaris.gr/feed/" }
-                }
-            });
-
-            teamInfo.Add(new TeamInfo
-            {
-                TeamName = "paok",
-                TeamLabel = "ΠΑΟΚ",
-                Sites = new List<TeamSiteInfo>
-                {
-                    new TeamSiteInfo { SiteName = "Contra", Url = "http://www.contra.gr/paok" },
-                    new TeamSiteInfo { SiteName = "Gazzetta", Url = "https://www.gazzetta.gr/teams/paok" },
-                    new TeamSiteInfo { SiteName = "InPAOK", Url = "https://inpaok.com/feed" },
-                    new TeamSiteInfo { SiteName = "NovaSports", Url = "http://www.novasports.gr/sys/novasports/RssFeed/GetFeed?type=2&id=16657&languageID=1" },
-                    new TeamSiteInfo { SiteName = "OnSports", Url = "https://www.onsports.gr/omades/paok" },
-                    new TeamSiteInfo { SiteName = "PAOK24", Url = "https://www.paok24.com/roh" },
-                    new TeamSiteInfo { SiteName = "PAOKFC", Url = "https://www.paokfc.gr/category/nea/feed/" },
-                    new TeamSiteInfo { SiteName = "SDNA", Url = "http://www.sdna.gr/teams/paok" },
-                    new TeamSiteInfo { SiteName = "Sport24", Url = "http://www.sport24.gr/football/omades/paok/?widget=rssfeed&view=feed&contentId=174866" },
-                    new TeamSiteInfo { SiteName = "SportDog", Url = "http://sportdog.gr/tag/ΠΑΟΚ" },
-                    new TeamSiteInfo { SiteName = "SportFM", Url = "http://www.sport-fm.gr/tag/paok" },
-                    new TeamSiteInfo { SiteName = "Sportime", Url = "http://www.sportime.gr/tag/paok/feed/" },
-                    new TeamSiteInfo { SiteName = "ThesSports", Url = "https://thessports.gr/category/soccer/παοκ/feed/" },
-                    new TeamSiteInfo { SiteName = "To10", Url = "https://www.to10.gr/team/paok/" },
-                    new TeamSiteInfo { SiteName = "Metrosport", Url = "https://www.metrosport.gr/paok" },
-                    new TeamSiteInfo { SiteName = "A-sports", Url = "https://www.A-sports.gr/articles_categories-158/" },
-                    new TeamSiteInfo { SiteName = "Kingsport", Url = "https://www.kingsport.gr/category/super-league1/paok-fc/" }
-                }
-            });
-
-            teamInfo.Add(new TeamInfo
-            {
-                TeamName = "panathinaikos",
-                TeamLabel = "Παναθηναϊκός",
-                Sites = new List<TeamSiteInfo>
-                {
-                    new TeamSiteInfo { SiteName = "Contra", Url = "http://www.contra.gr/panathinaikos" },
-                    new TeamSiteInfo { SiteName = "Gazzetta", Url = "https://www.gazzetta.gr/teams/panathinaikos" },
-                    new TeamSiteInfo { SiteName = "NewsPAO", Url = "http://www.newsPAO.gr/feed/" },
-                    new TeamSiteInfo { SiteName = "NovaSports", Url = "http://www.novasports.gr/sys/novasports/RssFeed/GetFeed?type=2&id=16625&languageID=1" },
-                    new TeamSiteInfo { SiteName = "OnSports", Url = "https://www.onsports.gr/omades/panathinaikos" },
-                    new TeamSiteInfo { SiteName = "SDNA", Url = "http://www.sdna.gr/teams/panathinaikos" },
-                    new TeamSiteInfo { SiteName = "Sport24", Url = "http://www.sport24.gr/football/omades/panathinaikos/?widget=rssfeed&view=feed&contentId=174866" },
-                    new TeamSiteInfo { SiteName = "SportFM", Url = "http://www.sport-fm.gr/tag/pao" },
-                    new TeamSiteInfo { SiteName = "Sportime", Url = "http://www.sportime.gr/tag/panathinaikos/feed/" },
-                    new TeamSiteInfo { SiteName = "SportDog", Url = "http://sportdog.gr/tag/Παναθηναϊκός" }
-                }
-            });
-
-            teamInfo.Add(new TeamInfo
-            {
-                TeamName = "osfp",
-                TeamLabel = "Ολυμπιακός",
-                Sites = new List<TeamSiteInfo>
-                {
-                    new TeamSiteInfo { SiteName = "Contra", Url = "http://www.contra.gr/olympiacos" },
-                    new TeamSiteInfo { SiteName = "Gavros", Url = "https://www.gavros.gr/timeline/" },
-                    new TeamSiteInfo { SiteName = "Gazzetta", Url = "https://www.gazzetta.gr/teams/olympiacos" },
-                    new TeamSiteInfo { SiteName = "NovaSports", Url = "http://www.novasports.gr/sys/novasports/RssFeed/GetFeed?type=2&id=16641&languageID=1" },
-                    new TeamSiteInfo { SiteName = "OlympiacosFC", Url = "https://www.olympiacos.org/all-news/" },
-                    new TeamSiteInfo { SiteName = "OnSports", Url = "https://www.onsports.gr/omades/olympiakos" },
-                    new TeamSiteInfo { SiteName = "SDNA", Url = "http://www.sdna.gr/teams/olympiakos" },
-                    new TeamSiteInfo { SiteName = "Sport24", Url = "http://www.sport24.gr/football/omades/olympiakos/?widget=rssfeed&view=feed&contentId=174866" },
-                    new TeamSiteInfo { SiteName = "SportFM", Url = "http://www.sport-fm.gr/tag/olympiakos" },
-                    new TeamSiteInfo { SiteName = "Sportime", Url = "http://www.sportime.gr/tag/olympiakos/feed/" },
-                    new TeamSiteInfo { SiteName = "SportDog", Url = "http://sportdog.gr/tag/Ολυμπιακός" }
-                }
-            });
-
-            return teamInfo;
-        }
-        
         //Δημιουργία πίνακα με τις πληροφορίες και τα url των ιστοσελίδων
         //private void FillTeamInfoDataTable(DataTable table)
         //{

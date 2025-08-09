@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using MyTeam2.Services;
+using MyTeam2.Services.Interfaces;
 
 namespace MyTeam2
 {
@@ -16,8 +18,12 @@ namespace MyTeam2
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
+            // Register services
+            builder.Services.AddSingleton<ITeamService, DataService>();
+            builder.Services.AddTransient<MainPage>();
 
             return builder.Build();
         }
