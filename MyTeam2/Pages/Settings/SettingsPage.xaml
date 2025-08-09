@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyTeam2.Pages.Settings.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Ρυθμίσεις"
+    BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="10,0">
+            
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Επιλεγμένη ομάδα"
+                VerticalTextAlignment="Center" />
+
+
+            <!--<Picker
+                x:Name="Picker"
+                Title="Επιλογή ομάδας"
+                HorizontalOptions="Center"
+                MinimumHeightRequest="30"
+                SelectedIndexChanged="Picker_OnSelectedIndexChanged" />-->
+            
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Διαθέσιμες Ιστοσελίδες"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Μέθοδος ανοίγματος άρθρων"
+                VerticalTextAlignment="Center" />
+
+            <!--<Picker
+                x:Name="urlPicker"
+                HorizontalOptions="Center"
+                MinimumHeightRequest="30"
+                SelectedIndexChanged="urlPicker_SelectedIndexChanged" />-->
+
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Πλήθος άρθρων ανά ιστοσελίδα"
+                VerticalTextAlignment="Center" />
+
+            <!--<Picker
+                x:Name="articlePicker"
+                HorizontalOptions="Center"
+                MinimumHeightRequest="30"
+                SelectedIndexChanged="articlePicker_SelectedIndexChanged" />-->
+
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Επιλογή εμφάνισης ειδήσεων"
+                VerticalTextAlignment="Center" />
+
+            <!--<Picker
+                x:Name="themePicker"
+                HorizontalOptions="Center"
+                MinimumHeightRequest="30"
+                SelectedIndexChanged="thePicker_Changed"
+                WidthRequest="150" />-->
+
+            <!--<Button
+                x:Name="SaveSettingsButton"
+                HorizontalOptions="End"
+                Clicked="SaveSettingsButton_OnClicked"
+                Text="ΑΠΟΘΗΚΕΥΣΗ" />-->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
