@@ -5,17 +5,11 @@ namespace MyTeam2
 {
     public partial class MainPage : ContentPage
     {
-        private IAppSettings _appSettings;
-        private readonly ITeamService _teamService;
-
         public MainPage(
             IAppSettings appSettings,
-            ITeamService teamService)
+            IDataService teamService)
         {
             InitializeComponent();
-            
-            _appSettings = appSettings;
-            _teamService = teamService;
         }
 
         private async void OnSettingsClicked(object sender, EventArgs e)

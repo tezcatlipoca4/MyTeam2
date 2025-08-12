@@ -7,22 +7,22 @@ namespace MyTeam2.Services
 {
     public class AppSettings : IAppSettings
     {
-        const string SelectedTeamKey = nameof(SelectedTeam);
+        const string SelectedTeamKey = nameof(SelectedTeamName);
         const string SelectedSitesKey = nameof(SelectedSites);
         const string ExternalBrowserEnabledKey = nameof(ExternalBrowserEnabled);
-        const string ModernUiKey = nameof(ModernUi);
+        const string ModernUiKey = nameof(IsModernUi);
         const string ArticlesPerPageKey = nameof(ArticlesPerPage);
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         // string
-        public string SelectedTeam
+        public string SelectedTeamName
         {
             get => Preferences.Get(SelectedTeamKey, string.Empty);
             set
             {
                 if (value is null) value = string.Empty;
-                if (value == SelectedTeam) return;
+                if (value == SelectedTeamName) return;
                 Preferences.Set(SelectedTeamKey, value);
                 OnPropertyChanged();
             }
@@ -81,12 +81,12 @@ namespace MyTeam2.Services
             }
         }
 
-        public bool ModernUi
+        public bool IsModernUi
         {
-            get => Preferences.Get(ModernUiKey, false);
+            get => Preferences.Get(ModernUiKey, true);
             set
             {
-                if (value == ModernUi) return;
+                if (value == IsModernUi) return;
                 Preferences.Set(ModernUiKey, value);
                 OnPropertyChanged();
             }

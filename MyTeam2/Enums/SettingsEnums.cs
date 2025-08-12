@@ -1,24 +1,23 @@
 ﻿namespace MyTeam2.Enums
 {
-    class SettingsEnums
+    public enum LinkOpenOption
     {
-        public enum LinkOpenOption
-        {
-            BrowserApp,
-            BrowserDevice
-        }
+        InAppBrowser,
+        DeviceBrowser
+    }
 
-        public enum ThemeOption
-        {
-            Modern,
-            Minimal
-        }
+    public static class LinkOpenOptionDisplay
+    {
+        public static readonly Dictionary<LinkOpenOption, string> Names = new()
+            {
+                { LinkOpenOption.InAppBrowser, "Μέσα στην εφαρμογή" },
+                { LinkOpenOption.DeviceBrowser, "Σε browser" }
+            };
+    }
 
-        public enum ArticlesPerPageOption
-        {
-            Five = 5,
-            Ten = 10,
-            Fifteen = 15
-        }
+    public enum ThemeOption
+    {
+        Modern,
+        Minimal
     }
 }

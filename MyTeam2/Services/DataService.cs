@@ -3,10 +3,12 @@ using MyTeam2.Services.Interfaces;
 
 namespace MyTeam2.Services
 {
-    public class DataService : ITeamService
+    public class DataService : IDataService
     {
         private readonly List<Site> _sites;
         private readonly List<Team> _teams;
+
+        public static readonly int[] ArticlePerPageOptions = [5, 10, 15];
 
         private const string LogoDirectoryPrefix = "";
 
@@ -17,6 +19,10 @@ namespace MyTeam2.Services
         }
 
         public List<Team> GetAllTeamsInfo() => _teams;
+
+        public Team GetTeamByName(string teamName) => _teams.First(t => t.Name == teamName);
+
+        public Team GetTeamByLabel(string teamLabel) => _teams.First(t => t.Label == teamLabel);
 
         private List<Site> InitializeSites()
         {
@@ -53,7 +59,6 @@ namespace MyTeam2.Services
                 // TODO: Add more sites as needed...
             };
         }
-
 
         private List<Team> InitializeTeamInfo()
         {

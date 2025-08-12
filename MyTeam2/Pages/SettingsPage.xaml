@@ -3,46 +3,40 @@
     x:Class="MyTeam2.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:MyTeam2.Converters"
     Title="Settings">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:EnumDisplayConverter x:Key="EnumDisplayConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Margin="10,0">
+
+            <Grid RowSpacing="15" ColumnSpacing="10">
             
-            <!--<Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="Επιλεγμένη ομάδα"
-                VerticalTextAlignment="Center" />
-
-            <Picker
-                x:Name="TeamPicker"
-                Title="Επιλογή ομάδας"
-                HorizontalOptions="Center"
-                MinimumHeightRequest="30"
-                SelectedIndexChanged="TeamPicker_OnSelectedIndexChanged" />-->
-
-            <Grid Padding="20" RowSpacing="15" ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
-                    <!-- Για labels -->
                     <ColumnDefinition Width="*" />
-                    <!-- Για Pickers -->
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!-- Άνοιγμα link -->
                 <Label
                     Text="Η ομάδα μου:"
                     VerticalTextAlignment="Center" 
                     Grid.Row="0" Grid.Column="0" />
                 <Picker
                     x:Name="TeamPicker"
+                    ItemsSource="{Binding AvailableTeams}"
+                    SelectedItem="{Binding SelectedTeamLabel, Mode=TwoWay}"
                     Grid.Row="0" 
-                    Grid.Column="1" 
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Start"
                     SelectedIndexChanged="TeamPicker_OnSelectedIndexChanged" />
-               
             </Grid>
 
             <Label
@@ -59,13 +53,12 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <!-- each line: img | siteName | isSelected toggle -->
-                        <Grid Padding="6" HeightRequest="40"
-                              ColumnDefinitions="40,*,Auto"
-                              RowDefinitions="Auto">
+                        <Grid Padding="0" HeightRequest="50"
+                              ColumnDefinitions="50,*,Auto"
+                              RowDefinitions="50,*,Auto">
                             <Image
+                                Scale="0.9"
                                 Source="{Binding LogoPath}"
-                                WidthRequest="36"
-                                HeightRequest="36"
                                 Aspect="AspectFit"
                                 VerticalOptions="Center" />
 
@@ -87,12 +80,10 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             
-            <Grid Padding="20" RowSpacing="15" ColumnSpacing="10">
+            <Grid ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
-                    <!-- Για labels -->
                     <ColumnDefinition Width="*" />
-                    <!-- Για Pickers -->
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -101,16 +92,49 @@
                 </Grid.RowDefinitions>
 
                 <!-- Browser selection -->
-                <Label Text="Άνοιγμα link σε:" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0" />
-                <Picker x:Name="LinkPicker" Grid.Row="0" Grid.Column="1" />
+                <Label
+                    Text="Άνοιγμα link σε:" 
+                    VerticalTextAlignment="Center" 
+                    Grid.Row="0" 
+                    Grid.Column="0" />
+                
+                <Picker
+                    x:Name="LinkPicker"
+                    ItemsSource="{Binding LinkOpenOptions}"
+                    SelectedItem="{Binding SelectedLinkOpenOption }"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource EnumDisplayConverter}}"
+                    Grid.Row="0"
+                    Grid.Column="1" />
 
                 <!-- Theme selection -->
-                <Label Text="Επιλογή θεματος:" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" />
-                <Picker x:Name="ThemePicker" Grid.Row="1" Grid.Column="1" />
+                <Label 
+                    Text="Επιλογή θεματος:" 
+                    VerticalTextAlignment="Center" 
+                    Grid.Row="1" 
+                    Grid.Column="0" />
+                
+                <Picker
+                    x:Name="ThemePicker" 
+                    ItemsSource="{Binding ThemeOptions}"
+                    SelectedItem="{Binding SelectedThemeOption }"
+                    Grid.Row="1" 
+                    Grid.Column="1" />
 
                 <!-- Articles Per Page -->
-                <Label Text="Άρθρα ανά σελίδα:" VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0" />
-                <Picker x:Name="ArticlesPerPagePicker" Grid.Row="2" Grid.Column="1" />
+                <Label 
+                    Text="Άρθρα ανά σελίδα:" 
+                    VerticalTextAlignment="Center"
+                    Grid.Row="2"
+                    Grid.Column="0" />
+                
+                <Picker
+                    x:Name="ArticlesPerPagePicker"
+                    ItemsSource="{Binding ArticlesPerPageOptions}"
+                    SelectedItem="{Binding SelectedArticlesPerPageOption }"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource EnumDisplayConverter}}"
+                    Grid.Row="2"
+                    Grid.Column="1" />
+                
             </Grid>
 
             <Button

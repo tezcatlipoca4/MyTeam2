@@ -25,8 +25,7 @@ namespace MyTeam2
 #endif
 
             // Register services
-            //builder.Services.AddTransient<MainPage>();
-            builder.Services.AddSingleton<ITeamService, DataService>();
+            builder.Services.AddSingleton<IDataService, DataService>();
             builder.Services.AddSingleton<IAppSettings, AppSettings>();
 
             return builder.Build();
