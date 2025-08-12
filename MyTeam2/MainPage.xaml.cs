@@ -7,7 +7,8 @@ namespace MyTeam2
     {
         public MainPage(
             IAppSettings appSettings,
-            IDataService teamService)
+            IDataService teamService,
+            INavigationService navigationService)
         {
             InitializeComponent();
         }

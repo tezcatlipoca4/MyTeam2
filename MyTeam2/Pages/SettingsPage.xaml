@@ -16,27 +16,21 @@
         <VerticalStackLayout Margin="10,0">
 
             <Grid RowSpacing="15" ColumnSpacing="10">
-            
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
 
                 <Label
                     Text="Η ομάδα μου:"
                     VerticalTextAlignment="Center" 
                     Grid.Row="0" Grid.Column="0" />
                 <Picker
-                    x:Name="TeamPicker"
                     ItemsSource="{Binding AvailableTeams}"
                     SelectedItem="{Binding SelectedTeamLabel, Mode=TwoWay}"
                     Grid.Row="0" 
                     Grid.Column="1"
-                    HorizontalTextAlignment="Start"
-                    SelectedIndexChanged="TeamPicker_OnSelectedIndexChanged" />
+                    HorizontalTextAlignment="Start" />
             </Grid>
 
             <Label
@@ -46,13 +40,11 @@
                 VerticalTextAlignment="Center" />
 
             <CollectionView
-                x:Name="AvailableSitesCollectionView"
                 ItemsSource="{Binding AvailableSites}"
                 SelectionMode="None"
                 VerticalOptions="Start">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <!-- each line: img | siteName | isSelected toggle -->
                         <Grid Padding="0" HeightRequest="50"
                               ColumnDefinitions="50,*,Auto"
                               RowDefinitions="50,*,Auto">
@@ -79,7 +71,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            
+
             <Grid ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
@@ -91,58 +83,51 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!-- Browser selection -->
                 <Label
                     Text="Άνοιγμα link σε:" 
                     VerticalTextAlignment="Center" 
                     Grid.Row="0" 
                     Grid.Column="0" />
-                
+
                 <Picker
-                    x:Name="LinkPicker"
                     ItemsSource="{Binding LinkOpenOptions}"
                     SelectedItem="{Binding SelectedLinkOpenOption }"
                     ItemDisplayBinding="{Binding ., Converter={StaticResource EnumDisplayConverter}}"
                     Grid.Row="0"
                     Grid.Column="1" />
 
-                <!-- Theme selection -->
                 <Label 
                     Text="Επιλογή θεματος:" 
                     VerticalTextAlignment="Center" 
                     Grid.Row="1" 
                     Grid.Column="0" />
-                
+
                 <Picker
-                    x:Name="ThemePicker" 
                     ItemsSource="{Binding ThemeOptions}"
                     SelectedItem="{Binding SelectedThemeOption }"
                     Grid.Row="1" 
                     Grid.Column="1" />
 
-                <!-- Articles Per Page -->
                 <Label 
                     Text="Άρθρα ανά σελίδα:" 
                     VerticalTextAlignment="Center"
                     Grid.Row="2"
                     Grid.Column="0" />
-                
+
                 <Picker
-                    x:Name="ArticlesPerPagePicker"
                     ItemsSource="{Binding ArticlesPerPageOptions}"
                     SelectedItem="{Binding SelectedArticlesPerPageOption }"
-                    ItemDisplayBinding="{Binding ., Converter={StaticResource EnumDisplayConverter}}"
                     Grid.Row="2"
                     Grid.Column="1" />
-                
+
             </Grid>
 
             <Button
-                x:Name="SaveSettingsButton"
+                Text="ΑΠΟΘΗΚΕΥΣΗ"
                 HorizontalOptions="End"
-                Clicked="SaveSettingsButton_OnClicked"
-                Text="ΑΠΟΘΗΚΕΥΣΗ" />
-            
+                Command="{Binding SaveSettingsCommand}"
+                IsEnabled="{Binding SaveSettingsCommand.CanExecute, Mode=OneWay}" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -27,6 +27,7 @@ namespace MyTeam2
             // Register services
             builder.Services.AddSingleton<IDataService, DataService>();
             builder.Services.AddSingleton<IAppSettings, AppSettings>();
+            builder.Services.AddSingleton<INavigationService, NavigationService>();
 
             return builder.Build();
         }
